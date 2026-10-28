@@ -10,8 +10,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     
     path('funcionarios/', 
-         views.FuncionariosListView.as_view(),
-         name='lista_funcionarios'),
+        views.FuncionariosListView.as_view(),
+        name='lista_funcionarios'),
     
     # Utilizando o {id} para buscar o objeto
     path('funcionario/<id>',
