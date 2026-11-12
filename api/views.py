@@ -1,3 +1,5 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from api.models import FundoImobiliario
@@ -26,3 +28,6 @@ class FundoImobiliarioViewSet(viewsets.ModelViewSet):
     # Restringe o acesso aos endpoints. Neste caso, apenas usuários autenticados
     # (logados) podem visualizar, criar, editar ou excluir os dados.
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['codigo', 'setor']
+    search_fields = ['codigo', 'setor']
